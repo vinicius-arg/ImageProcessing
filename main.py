@@ -11,10 +11,6 @@ def write_img(pixels, type):
 	imagem.close()	
 	return
 
-def negative(img):
-	for i in range(len(img)):
-		img[i] = 255 - img[i]
-
 pixels_line = []
 img = []
 
@@ -35,8 +31,5 @@ size = pixels_line.pop(0)
 colors_interval = pixels_line.pop(0)
 
 img = list(map(int, pixels_line))
-
-# Aplicação de efeitos
-negative(img)
 
 write_img(img, 'P2')
