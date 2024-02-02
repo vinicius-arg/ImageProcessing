@@ -8,6 +8,7 @@ output = sys.argv[2]
 img = ip.read(input)
 
 sliced_planes = glvs.slice(img)
-img1 = ip.Image('P1', sliced_planes[4], img.size, img.rows, img.columns, 1, input)
+img1 = glvs.zip(img, sliced_planes, 0, 5)
+img2 = ip.Image(img.type, img1, img.size, img.rows, img.columns, img.range, input)
 
-img1.write(output)
+img2.write(output)
