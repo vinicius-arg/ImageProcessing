@@ -1,14 +1,13 @@
-import grayLevelSlicing as glvs
+import diff
 import ImportPicture as ip
 import sys
 
 input = sys.argv[1]
-output = sys.argv[2]
+input2= sys.argv[2]
+output = sys.argv[3]
 
-img = ip.read(input)
+img1 = ip.read(input)
+img2 = ip.read(input2)
 
-sliced_planes = glvs.slice(img)
-img1 = glvs.zip(img, sliced_planes, 0, 5)
-img2 = ip.Image(img.type, img1, img.size, img.rows, img.columns, img.range, input)
-
-img2.write(output)
+img3 = diff.getSub(img1, img2)
+img3.write(output)
