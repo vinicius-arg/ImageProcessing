@@ -1,13 +1,13 @@
-import diff
+import blur
 import ImportPicture as ip
 import sys
 
 input = sys.argv[1]
-input2= sys.argv[2]
-output = sys.argv[3]
+output = sys.argv[2]
 
-img1 = ip.read(input)
-img2 = ip.read(input2)
+img = ip.read(input)
 
-img3 = diff.getSub(img1, img2)
-img3.write(output)
+px = blur.mean(img, 5)
+
+blur_img = ip.Image(img.type, px, img.size, img.rows, img.columns, img.range, img.url)
+blur_img.write(output)

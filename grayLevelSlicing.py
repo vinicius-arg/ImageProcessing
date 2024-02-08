@@ -1,7 +1,7 @@
 import ImportPicture as ip
 
 def slice(img: object):
-    planes = [list(bin(x)[2:].zfill(8)) for x in img.pixels]
+    planes = [list(bin(x)[2:].zfill(8)) for x in img.array()]
     sliced_planes = [[] for x in range(8)]
     for i in range(8):
         for bits in planes:
